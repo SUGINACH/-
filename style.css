@@ -1,0 +1,217 @@
+/* ============================================================
+   עיצוב כרטיסיות הבחירה הוויזואליות (Visual Card Selector)
+   ============================================================ */
+.visual-picker-wrapper {
+  position: relative;
+  width: 100%;
+  flex: 1;
+}
+
+.visual-picker-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  min-height: 34px;
+}
+
+.visual-picker-trigger:hover {
+  border-color: #3b82f6;
+  background: #f8fafc;
+}
+
+.vp-trig-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  min-width: 32px;
+  max-width: 65px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.vp-trig-preview svg,
+.vp-trig-preview img {
+  max-height: 20px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.vp-trig-label {
+  flex: 1;
+  text-align: right;
+  font-size: 8pt;
+  font-weight: 700;
+  color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vp-trig-arrow {
+  font-size: 7pt;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+/* התפריט הנפתח (גריד של כרטיסיות) */
+.visual-picker-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  left: 0;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+  z-index: 250;
+  max-height: 260px;
+  overflow-y: auto;
+  padding: 6px;
+}
+
+.visual-picker-dropdown.open {
+  display: block;
+}
+
+.visual-cards-grid {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+}
+
+.visual-cards-grid.ornament-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.visual-cards-grid.shaar-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* כרטיסייה גרפית בודדת: אלמנט למעלה, שם תחתיו */
+.visual-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 6px 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+  user-select: none;
+  text-align: center;
+}
+
+.visual-card:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  transform: translateY(-1px);
+}
+
+.visual-card.selected {
+  background: #eff6ff;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1.5px #2563eb;
+}
+
+.visual-card-preview {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  overflow: hidden;
+}
+
+.ornament-card .visual-card-preview {
+  height: 38px;
+  padding: 2px;
+}
+
+.shaar-card .visual-card-preview {
+  height: 70px;
+  padding: 2px;
+}
+
+.visual-card-preview svg,
+.visual-card-preview img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.visual-card-name {
+  font-size: 7.2pt;
+  font-weight: 700;
+  color: #334155;
+  line-height: 1.2;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.visual-card.selected .visual-card-name {
+  color: #1d4ed8;
+}
+
+.visual-card-check {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 6.5pt;
+  font-weight: 900;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vp-shaar-thumb {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.6);
+  transform-origin: center center;
+}
+
+.vp-ornament-thumb {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vp-badge-theme {
+  font-size: 7pt;
+  font-weight: 700;
+  color: #1e3a8a;
+  background: #dbeafe;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
